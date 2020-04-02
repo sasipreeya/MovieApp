@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from "react";
 import {
   SafeAreaView,
@@ -25,16 +17,20 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 
 import { connect } from "react-redux";
+import { ListItem } from 'react-native-elements'
 import NavBar from "./src/components/NavbarComponent";
-import SearchComponent from "./src/components/SearchComponent";
+import Search from "./src/components/SearchComponent";
+import HistoryList from "./src/components/HistoryListComponent";
 
 class App extends React.Component {
+  const { searchHistory } = this.props
   render() {
     return (
       <SafeAreaView>
         <NavBar />
         <ScrollView>
-          <SearchComponent />
+          <Search />
+          <HistoryList historyList={searchHistory} />
         </ScrollView>
       </SafeAreaView>
     );
