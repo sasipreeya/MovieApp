@@ -1,5 +1,6 @@
 import React from "react";
 import NavigationBar from "react-native-navbar";
+import { Actions } from "react-native-router-flux";
 
 const styles = {
   container: {
@@ -9,7 +10,7 @@ const styles = {
 
 const rightButtonConfig = {
   title: "Favorite",
-  handler: () => alert("Hello!")
+  handler: () => Actions.Favorite()
 };
 
 const titleConfig = {
