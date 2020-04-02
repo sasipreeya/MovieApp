@@ -24,10 +24,11 @@ import {
   ReloadInstructions
 } from "react-native/Libraries/NewAppScreen";
 
+import { connect } from "react-redux";
 import NavBar from "./src/components/NavbarComponent";
 import SearchComponent from "./src/components/SearchComponent";
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true, search: "" };
@@ -68,6 +69,13 @@ export default class App extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    searchWords: state.searchReducer.searchWords,
+    searchHistory: state.searchReducer.searchHistory
+  };
+}
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter
@@ -106,3 +114,5 @@ const styles = StyleSheet.create({
     textAlign: "right"
   }
 });
+
+export default connect(mapStateToProps)(App);

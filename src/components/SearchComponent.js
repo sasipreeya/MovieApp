@@ -1,7 +1,6 @@
 import React from "react";
 import SearchBar from "react-native-search-bar";
-
-export var searchHistory = [];
+import { search } from "../actions/search/searchAction";
 
 export default class SearchComponent extends React.Component {
   state = {
@@ -13,8 +12,7 @@ export default class SearchComponent extends React.Component {
   };
 
   onSearchClicked = searchWords => {
-    searchHistory.push(searchWords);
-    console.log(searchHistory);
+    search(searchWords);
   };
 
   render() {
