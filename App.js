@@ -24,11 +24,16 @@ import {
   ReloadInstructions
 } from "react-native/Libraries/NewAppScreen";
 
+import NavBar from "./src/components/NavbarComponent";
+import SearchComponent from "./src/components/SearchComponent";
+
 export default class App extends React.Component {
   render() {
     return (
       <SafeAreaView>
+        <NavBar />
         <ScrollView>
+          <SearchComponent />
           <Text>Hello World</Text>
         </ScrollView>
       </SafeAreaView>
