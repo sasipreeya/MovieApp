@@ -1,8 +1,9 @@
-import { SEARCH } from "../actions/search/searchType";
+import { SEARCH, GET_SEARCH_RESULT } from "../actions/search/searchType";
 
 export const initialState = {
   searchWords: "",
-  searchHistory: []
+  searchHistory: [],
+  searchResult: []
 };
 
 export default (state = initialState, action) => {
@@ -12,6 +13,11 @@ export default (state = initialState, action) => {
         ...state,
         searchWords: action.payload.searchWords,
         searchHistory: searchHistory.push(action.payload.searchWords)
+      };
+    case GET_SEARCH_RESULT:
+      return {
+        ...state,
+        searchResult: action.payload.searchResult
       };
     default:
       return state;

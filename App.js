@@ -29,34 +29,6 @@ import NavBar from "./src/components/NavbarComponent";
 import SearchComponent from "./src/components/SearchComponent";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isLoading: true, search: "" };
-    this.arrayHolder = [];
-  }
-
-  componentDidMount() {
-    return fetch("http://scb-movies-api.herokuapp.com/api/movies/search", {
-      method: "GET",
-      headers: "b281db381841c6ec99a6183c9945d76fb6634d60"
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState(
-          {
-            isLoading: false,
-            dataSource: responseJson
-          },
-          function() {
-            this.arrayHolder = responseJson;
-          }
-        );
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-
   render() {
     return (
       <SafeAreaView>
