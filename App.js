@@ -27,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <SafeAreaView>
-        <NavBar />
+        <NavBar pageScene={"Search"} />
         <ScrollView>
           <Search />
           <HistoryList historyList={searchHistory} />

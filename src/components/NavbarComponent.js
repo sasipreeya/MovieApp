@@ -8,19 +8,23 @@ const styles = {
   }
 };
 
-const rightButtonConfig = {
-  title: "Favorite",
-  handler: () => Actions.Favorite()
+const rightButtonConfig = pageScene => {
+  if (pageScene == "Search") {
+    title: "Favorite",
+    handler: () => Actions.Favorite()
+  } else if (pageScene == "Detail") {
+    title: "Back to Search",
+    handler: () => Actions.Search()
+  } else {
+    title: ""
+  }
 };
 
 const titleConfig = {
   title: "Movie Search"
 };
 
-export default class NavbarComponent extends React.Component {
-  render() {
-    return (
-      <NavigationBar title={titleConfig} rightButton={rightButtonConfig} />
-    );
-  }
-}
+export const NavbarComponent = props => {
+  let { pageScene } = props;
+  return <NavigationBar title={titleConfig} rightButton={rightButtonConfig(pageScene)} />;
+};
