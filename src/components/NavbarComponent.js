@@ -8,28 +8,15 @@ const styles = {
   }
 };
 
-const rightButtonConfig = pageScene => {
-  if (pageScene == "Search") {
-    title: "Favorite";
-    // handler: () => Actions.Favorite()
-  } else if (pageScene == "Detail") {
-    title: "Back to Search";
-    // handler: () => Actions.Search()
-  } else {
-    title: "";
-  }
+const rightButtonConfig = {
+  title: "Favorite",
+  handler: () => alert("hello!")
 };
 
 const titleConfig = {
   title: "Movie Search"
 };
 
-export const NavbarComponent = props => {
-  let { pageScene } = props;
-  return (
-    <NavigationBar
-      title={titleConfig}
-      rightButton={rightButtonConfig(pageScene)}
-    />
-  );
+export const NavbarComponent = () => {
+  return <NavigationBar title={titleConfig} rightButton={rightButtonConfig} />;
 };

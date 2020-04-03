@@ -10,16 +10,20 @@ import {
 
 import { connect } from "react-redux";
 import { ListItem } from "react-native-elements";
-import NavBar from "./src/components/NavbarComponent";
+import { NavbarComponent } from "./src/components/NavbarComponent";
 import Search from "./src/components/SearchComponent";
-import HistoryList from "./src/components/HistoryListComponent";
+import { HistoryList } from "./src/components/HistoryListComponent";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     const { searchHistory } = this.props;
     return (
       <SafeAreaView>
-        <NavBar pageScene={"Search"} />
+        <NavbarComponent />
         <ScrollView>
           <Search />
           <HistoryList historyList={searchHistory} />
