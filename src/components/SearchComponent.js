@@ -1,8 +1,9 @@
 import React from "react";
 import SearchBar from "react-native-search-bar";
+import { connect } from "react-redux";
 import { search, getSearchResult } from "../actions/search/searchAction";
 
-export default class SearchComponent extends React.Component {
+export class SearchComponent extends React.Component {
   state = {
     search: ""
   };
@@ -19,13 +20,16 @@ export default class SearchComponent extends React.Component {
   render() {
     return (
       <SearchBar
-        ref="searchBar"
+        ref={search => (this.search = search)}
         placeholder="Search"
         onChangeText={this.updateSearch}
         onSearchButtonPress={() => {
           this.onSearchClicked(this.state.search);
+          this.search.clearText();
         }}
       />
     );
   }
 }
+
+export default connect(null, { search, getSearchResult })(SearchComponent);

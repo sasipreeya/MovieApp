@@ -14,30 +14,16 @@ import { NavbarComponent } from "./src/components/NavbarComponent";
 import Search from "./src/components/SearchComponent";
 import { HistoryList } from "./src/components/HistoryListComponent";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
+export default class App extends React.Component {
   render() {
-    const { searchHistory } = this.props;
     return (
       <SafeAreaView>
         <NavbarComponent />
         <ScrollView>
           <Search />
-          <HistoryList historyList={searchHistory} />
+          <HistoryList />
         </ScrollView>
       </SafeAreaView>
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    searchWords: state.searchReducer.searchWords,
-    searchHistory: state.searchReducer.searchHistory
-  };
-}
-
-export default connect(mapStateToProps)(App);

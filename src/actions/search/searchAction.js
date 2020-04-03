@@ -11,6 +11,9 @@ searchForResult = words => {
     }
   )
     .then(response => response.json())
+    .then(json => {
+      return json;
+    })
     .catch(error => {
       console.error(error);
     });
@@ -26,6 +29,6 @@ export const search = searchWords => ({
 export const getSearchResult = searchWords => ({
   type: GET_SEARCH_RESULT,
   payload: {
-    searchResult: searchForResult(searchWords).response
+    searchResult: searchForResult(searchWords)
   }
 });
