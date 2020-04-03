@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         searchWords: action.payload.searchWords,
-        searchHistory: searchHistory.push(action.payload.searchWords)
+        searchHistory: state.searchHistory.push(action.payload.searchWords)
       };
     case GET_SEARCH_RESULT:
       return {

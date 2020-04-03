@@ -13,11 +13,12 @@ export class SearchComponent extends React.Component {
   };
 
   onSearchClicked = words => {
-    search(words);
-    getSearchResult(words);
+    this.props.search(words);
+    this.props.getSearchResult(words);
   };
 
   render() {
+    const { searchWords, searchHistory, searchResult } = this.props;
     return (
       <SearchBar
         ref={search => (this.search = search)}
@@ -32,4 +33,12 @@ export class SearchComponent extends React.Component {
   }
 }
 
-export default connect(null, { search, getSearchResult })(SearchComponent);
+const mapStateToProps = state => {
+  return {
+    searchWords: state.searchReducer.searchWords,
+    searchHistory: state.searchReducer.searchHistory,
+    searchResult: state.searchReducer.searchResult
+  };
+};
+
+export default connect(mapStateToProps, { search, getSearchResult })(SearchComponent);

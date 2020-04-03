@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { View } from "react-native";
 import { getSearchResult } from "../actions/search/searchAction";
 
-class HistoryList extends React.Component {
+export class HistoryList extends React.Component {
   render() {
     const { searchHistory } = this.props;
     return (
