@@ -32,3 +32,10 @@ export const getSearchResult = searchWords => ({
     searchResult: searchForResult(searchWords)
   }
 });
+
+export const searchHandler = searchWords => {
+  return dispatch => {
+    dispatch(search(searchWords));
+    dispatch(getSearchResult(searchWords));
+  };
+};

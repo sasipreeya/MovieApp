@@ -1,26 +1,27 @@
 import React from "react";
 import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
-import { search, getSearchResult } from "../actions/search/searchAction";
 import { View } from "react-native";
+import { searchHandler } from "../actions/search/searchAction";
 
-export const HistoryList = props => {
-  let { searchHistory } = props;
-  var history = ["a", "b"];
-  return (
+class HistoryList extends React.Component {
+  render() {
+    const { searchHistory } = this.props;
+    return (
     <View>
-      {history.map((item, index) => (
+      {searchHistory.map((item, index) => (
         <ListItem
           key={index}
           title={item}
           bottomDivider
           onPress={() => {
-            getSearchResult(item);
+            searchHandler(item);
           }}
         />
       ))}
     </View>
   );
+  }
 };
 
 const mapStateToProps = state => {
@@ -29,4 +30,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(HistoryList);
+export default connect(mapStateToProps, { searchHandler })(HistoryList);
