@@ -27,6 +27,9 @@ export class SearchComponent extends React.Component {
         onSearchButtonPress={() => {
           this.onSearchClicked(this.state.search);
           this.search.clearText();
+          console.log(searchWords);
+          console.log(searchHistory);
+          console.log(searchResult);
         }}
       />
     );

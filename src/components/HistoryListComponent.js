@@ -9,7 +9,7 @@ export class HistoryList extends React.Component {
     const { searchHistory } = this.props;
     return (
     <View>
-      {searchHistory.map((item, index) => (
+      {/* {searchHistory.map((item, index) => (
         <ListItem
           key={index}
           title={item}
@@ -18,7 +18,7 @@ export class HistoryList extends React.Component {
             getSearchResult(item);
           }}
         />
-      ))}
+      ))} */}
     </View>
   );
   }
