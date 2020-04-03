@@ -292,7 +292,15 @@ PODS:
     - React-cxxreact (= 0.62.0)
     - React-jsi (= 0.62.0)
     - ReactCommon/callinvoker (= 0.62.0)
+  - RNGestureHandler (1.6.1):
+    - React
+  - RNReanimated (1.7.1):
+    - React
+  - RNScreens (2.4.0):
+    - React
   - RNSearchBar (3.5.1):
+    - React
+  - RNVectorIcons (6.6.0):
     - React
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -331,7 +339,11 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/callinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - RNSearchBar (from `../node_modules/react-native-search-bar`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -398,8 +410,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   RNSearchBar:
     :path: "../node_modules/react-native-search-bar"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -439,10 +459,14 @@ SPEC CHECKSUMS:
   React-RCTText: 91a0d0ae5434aa28fe0c89c03eb9d660ff53bd9b
   React-RCTVibration: 0630aeb11e22f87c180ca9c0c3a0a0aba780cc62
   ReactCommon: d22162ab8f1358c53dfcd0f9c4d82d38facdbc48
+  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNReanimated: 4e102df74a9674fa943e05f97f3362b6e44d0b48
+  RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
   RNSearchBar: 54ad41edd78385681730b02b5e069900436d996b
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 9db9ff2025ad21d1ac0a8b3c85d5ac4e7c29d525
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: d6b259d7fab82519e8c4c5e20879122003da9dd5
+PODFILE CHECKSUM: 1775d480a2faa070ea61570095f32a6e6b1d6300
 
 COCOAPODS: 1.9.1

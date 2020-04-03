@@ -10,13 +10,13 @@ const styles = {
 
 const rightButtonConfig = pageScene => {
   if (pageScene == "Search") {
-    title: "Favorite",
-    handler: () => Actions.Favorite()
+    title: "Favorite";
+    // handler: () => Actions.Favorite()
   } else if (pageScene == "Detail") {
-    title: "Back to Search",
-    handler: () => Actions.Search()
+    title: "Back to Search";
+    // handler: () => Actions.Search()
   } else {
-    title: ""
+    title: "";
   }
 };
 
@@ -26,5 +26,10 @@ const titleConfig = {
 
 export const NavbarComponent = props => {
   let { pageScene } = props;
-  return <NavigationBar title={titleConfig} rightButton={rightButtonConfig(pageScene)} />;
+  return (
+    <NavigationBar
+      title={titleConfig}
+      rightButton={rightButtonConfig(pageScene)}
+    />
+  );
 };

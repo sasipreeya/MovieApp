@@ -17,14 +17,14 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 
 import { connect } from "react-redux";
-import { ListItem } from 'react-native-elements'
+import { ListItem } from "react-native-elements";
 import NavBar from "./src/components/NavbarComponent";
 import Search from "./src/components/SearchComponent";
 import HistoryList from "./src/components/HistoryListComponent";
 
 class App extends React.Component {
-  const { searchHistory } = this.props
   render() {
+    const { searchHistory } = this.props;
     return (
       <SafeAreaView>
         <NavBar pageScene={"Search"} />
