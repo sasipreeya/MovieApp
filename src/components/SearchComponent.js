@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "react-native-search-bar";
 import { connect } from "react-redux";
-import { searchHandler } from "../actions/search/searchAction";
+import { search, getSearchResult } from "../actions/search/searchAction";
 
 export class SearchComponent extends React.Component {
   state = {
@@ -13,7 +13,8 @@ export class SearchComponent extends React.Component {
   };
 
   onSearchClicked = words => {
-    searchHandler(words);
+    search(words);
+    getSearchResult(words);
   };
 
   render() {
@@ -31,4 +32,4 @@ export class SearchComponent extends React.Component {
   }
 }
 
-export default connect(null, { searchHandler })(SearchComponent);
+export default connect(null, { search, getSearchResult })(SearchComponent);

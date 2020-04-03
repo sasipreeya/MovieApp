@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
 import { View } from "react-native";
-import { searchHandler } from "../actions/search/searchAction";
+import { getSearchResult } from "../actions/search/searchAction";
 
 class HistoryList extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class HistoryList extends React.Component {
           title={item}
           bottomDivider
           onPress={() => {
-            searchHandler(item);
+            getSearchResult(item);
           }}
         />
       ))}
@@ -30,4 +30,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { searchHandler })(HistoryList);
+export default connect(mapStateToProps, { getSearchResult })(HistoryList);

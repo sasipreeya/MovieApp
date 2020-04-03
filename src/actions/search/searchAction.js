@@ -19,23 +19,24 @@ searchForResult = words => {
     });
 };
 
-export const search = searchWords => ({
-  type: SEARCH,
-  payload: {
-    searchWords
-  }
-});
-
-export const getSearchResult = searchWords => ({
-  type: GET_SEARCH_RESULT,
-  payload: {
-    searchResult: searchForResult(searchWords)
-  }
-});
-
-export const searchHandler = searchWords => {
+export const search = searchWords => {
   return dispatch => {
-    dispatch(search(searchWords));
-    dispatch(getSearchResult(searchWords));
-  };
+    dispatch({
+      type: SEARCH,
+      payload: {
+        searchWords: searchWords
+      }
+    });
+  }
+};
+
+export const getSearchResult = searchWords => {
+  return dispatch => {
+    dispatch({
+      type: GET_SEARCH_RESULT,
+      payload: {
+        searchResult: searchForResult(searchWords)
+      }
+    });
+  }
 };
