@@ -8,21 +8,21 @@ export class HistoryList extends React.Component {
   render() {
     const { searchHistory } = this.props;
     return (
-    <View>
-      {/* {searchHistory.map((item, index) => (
-        <ListItem
-          key={index}
-          title={item}
-          bottomDivider
-          onPress={() => {
-            getSearchResult(item);
-          }}
-        />
-      ))} */}
-    </View>
-  );
+      <View>
+        {searchHistory.map((item, index) => (
+          <ListItem
+            key={index}
+            title={item}
+            bottomDivider
+            onPress={() => {
+              getSearchResult(item);
+            }}
+          />
+        ))}
+      </View>
+    );
   }
-};
+}
 
 const mapStateToProps = state => {
   return {

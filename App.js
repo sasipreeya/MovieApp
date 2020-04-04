@@ -15,6 +15,10 @@ import Search from "./src/components/SearchComponent";
 import HistoryList from "./src/components/HistoryListComponent";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     return (
       <SafeAreaView>
