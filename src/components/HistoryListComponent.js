@@ -3,6 +3,7 @@ import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
 import { View } from "react-native";
 import { getSearchResult } from "../actions/search/searchAction";
+import { Actions } from "react-native-router-flux";
 
 export class HistoryList extends React.Component {
   render() {
@@ -16,6 +17,7 @@ export class HistoryList extends React.Component {
             bottomDivider
             onPress={() => {
               getSearchResult(item);
+              Actions.SearchResult();
             }}
           />
         ))}
@@ -24,9 +26,9 @@ export class HistoryList extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    searchHistory: state.searchReducer.searchHistory
+    searchHistory: state.searchReducer.searchHistory,
   };
 };
 

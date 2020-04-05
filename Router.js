@@ -13,7 +13,7 @@ const RouterComponent = () => {
           key="Search"
           component={App}
           rightTitle="Favorite"
-          onRight={() => Actions.Favorite({})}
+          onRight={() => Actions.Favorite()}
         />
         <Scene
           key="SearchResult"
@@ -26,7 +26,7 @@ const RouterComponent = () => {
           component={Detail}
           title="Detail Page"
           rightTitle="Back to Search"
-          onRight={() => Actions.Search({})}
+          onRight={() => Actions.Search()}
         />
       </Scene>
     </Router>

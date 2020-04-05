@@ -16,6 +16,7 @@ export class SearchComponent extends React.Component {
   onSearchClicked = (words) => {
     this.props.search(words);
     this.props.getSearchResult(words);
+    Actions.SearchResult();
   };
 
   render() {
