@@ -9,11 +9,12 @@ import reduxThunk from "redux-thunk";
 import searchReducer from "./src/reducers/searchReducer";
 import favoriteReducer from "./src/reducers/favoriteReducer";
 import logger from "redux-logger";
+import RouterComponent from "./Router";
 
 const store = createStore(reducers, {}, applyMiddleware(logger, reduxThunk));
 const RNRedux = () => (
   <Provider store={store}>
-    <App />
+    <RouterComponent />
   </Provider>
 );
 

@@ -9,17 +9,17 @@ export class SearchResultScene extends React.Component {
     const { searchResult } = this.props;
     return (
       <View>
-        {searchResult.map(result => (
-            {result.map((item, index) => (
-                <MovieItem 
-                    item={item}
-                    title={item.title} 
-                    release_date={item.release_date}
-                    overview={item.overview}
-                    poster_path={item.poster_path}
-                />
-            ))}
-        ))}
+        {searchResult.map((result) =>
+          result.map((item, index) => (
+            <MovieItem
+              item={item}
+              title={item.title}
+              release_date={item.release_date}
+              overview={item.overview}
+              poster_path={item.poster_path}
+            />
+          ))
+        )}
       </View>
     );
   }

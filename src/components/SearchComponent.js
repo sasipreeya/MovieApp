@@ -25,9 +25,9 @@ export class SearchComponent extends React.Component {
         ref={(search) => (this.search = search)}
         placeholder="Search"
         onChangeText={this.updateSearch}
-        onSearchButtonPress={async () => {
-          await this.onSearchClicked(this.state.search);
-          await this.search.clearText();
+        onSearchButtonPress={() => {
+          this.onSearchClicked(this.state.search);
+          this.search.clearText();
         }}
       />
     );
