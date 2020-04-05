@@ -3,23 +3,22 @@ import { SEARCH, GET_SEARCH_RESULT } from "../actions/search/searchType";
 export const initialState = {
   searchWords: null,
   searchHistory: [],
-  searchResult: []
+  searchResult: [],
 };
 
 function searchHandler(state, action) {
-  var newState = state;
-  newState.searchWords = action.payload.searchWords;
-  if (newState.searchHistory != []) {
-    newState.searchHistory.map(item => {
+  state.searchWords = action.payload.searchWords;
+  if (state.searchHistory != []) {
+    state.searchHistory.map((item) => {
       if ((item = action.payload.searchWords)) {
-        newState.searchHistory = newState.searchHistory.filter(
-          item => item !== action.payload.searchWords
+        state.searchHistory = state.searchHistory.filter(
+          (item) => item !== action.payload.searchWords
         );
       }
     });
   }
-  newState.searchHistory.push(action.payload.searchWords);
-  return newState;
+  state.searchHistory.push(action.payload.searchWords);
+  return state;
 }
 
 export default (state = initialState, action) => {
@@ -29,7 +28,7 @@ export default (state = initialState, action) => {
     case GET_SEARCH_RESULT:
       return {
         ...state,
-        searchResult: action.payload.searchResult
+        searchResult: action.payload.searchResult,
       };
     default:
       return state;
