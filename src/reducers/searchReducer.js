@@ -3,7 +3,7 @@ import { SEARCH, GET_SEARCH_RESULT } from "../actions/search/searchType";
 export const initialState = {
   searchWords: null,
   searchHistory: [],
-  searchResult: [],
+  searchResult: null,
 };
 
 function searchHandler(state, action) {
@@ -21,15 +21,17 @@ function searchHandler(state, action) {
   return state;
 }
 
+function getSearchResultHandler(state, action) {
+  state.searchResult = action.payload.searchResult;
+  return state;
+}
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case SEARCH:
       return searchHandler(state, action);
     case GET_SEARCH_RESULT:
-      return {
-        ...state,
-        searchResult: action.payload.searchResult,
-      };
+      return getSearchResultHandler(state, action);
     default:
       return state;
   }

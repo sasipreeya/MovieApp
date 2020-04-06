@@ -7,27 +7,26 @@ import { MovieItem } from "../components/MovieItemComponent";
 export class SearchResultScene extends React.Component {
   render() {
     const { searchResult } = this.props;
+    console.log("searchResult", searchResult);
     return (
       <View>
-        {searchResult.map((result) =>
-          result.map((item, index) => (
-            <MovieItem
-              item={item}
-              title={item.title}
-              release_date={item.release_date}
-              overview={item.overview}
-              poster_path={item.poster_path}
-            />
-          ))
-        )}
+        {searchResult.results.map((item, index) => (
+          <MovieItem
+            item={item}
+            title={item.title}
+            release_date={item.release_date}
+            overview={item.overview}
+            poster_path={item.poster_path}
+          />
+        ))}
       </View>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    searchResult: state.searchReducer.searchResult
+    searchResult: state.searchReducer.searchResult,
   };
 };
 
