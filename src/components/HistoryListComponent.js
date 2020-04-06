@@ -2,10 +2,16 @@ import React from "react";
 import { ListItem } from "react-native-elements";
 import { connect } from "react-redux";
 import { View } from "react-native";
-import { getSearchResult } from "../actions/search/searchAction";
+import { search, getSearchResult } from "../actions/search/searchAction";
 import { Actions } from "react-native-router-flux";
 
 export class HistoryList extends React.Component {
+  onSearchClicked = (words) => {
+    this.props.search(words);
+    this.props.getSearchResult(words);
+    Actions.SearchResult();
+  };
+
   render() {
     const { searchHistory } = this.props;
     return (
@@ -16,8 +22,7 @@ export class HistoryList extends React.Component {
             title={item}
             bottomDivider
             onPress={() => {
-              getSearchResult(item);
-              Actions.SearchResult();
+              this.onSearchClicked(item)
             }}
           />
         ))}
@@ -32,4 +37,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getSearchResult })(HistoryList);
+export default connect(mapStateToProps, { search, getSearchResult })(
+  HistoryList
+);
