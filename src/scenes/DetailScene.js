@@ -7,7 +7,7 @@ import { Actions } from "react-native-router-flux";
 
 export class DetailScene extends Component {
   render() {
-    const { movieItem } = this.props;
+    const { movieItem, favoriteList } = this.props;
     return (
       <View>
         <View style={styles.container}>
@@ -30,12 +30,23 @@ export class DetailScene extends Component {
           </Text>
         </View>
         <View style={{ marginTop: 200 }}>
-          <Button
-            title="Favorite"
-            buttonStyle={{
-              backgroundColor: "orange",
-            }}
-          />
+          {favoriteList.length == 0 ? (
+            <Button
+              title="Favorite"
+              buttonStyle={{
+                backgroundColor: "orange",
+              }}
+              onPress={() => this.props.addFav(movieItem)}
+            />
+          ) : (
+            <Button
+              title="Unfavorite"
+              buttonStyle={{
+                backgroundColor: "orange",
+              }}
+              onPress={() => this.props.removeFav(this.props.movieItem.id)}
+            />
+          )}
         </View>
       </View>
     );

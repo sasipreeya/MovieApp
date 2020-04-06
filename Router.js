@@ -8,12 +8,13 @@ import { Actions, Scene, Router } from "react-native-router-flux";
 const RouterComponent = () => {
   return (
     <Router>
-      <Scene key="root" renderBackButton={() => null}>
+      <Scene key="root">
         <Scene
           key="Search"
           component={App}
           rightTitle="Favorite"
           onRight={() => Actions.Favorite()}
+          renderBackButton={() => null}
         />
         <Scene
           key="SearchResult"
@@ -26,7 +27,7 @@ const RouterComponent = () => {
           component={Detail}
           title="Detail Page"
           rightTitle="Back to Search"
-          onRight={() => Actions.root()}
+          onRight={() => Actions.Search()}
         />
       </Scene>
     </Router>

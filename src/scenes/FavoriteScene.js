@@ -25,10 +25,10 @@ export class FavoriteScene extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = async (state) => {
   return {
-    favoriteList: state.favoriteReducer.favoriteList,
+    favoriteList: await state.favoriteReducer.favoriteList,
   };
 };
 
-export default connect(mapStateToProps)(FavoriteScene);
+export default connect(mapStateToProps, null)(FavoriteScene);

@@ -13,10 +13,10 @@ export class SearchComponent extends React.Component {
     this.setState({ search });
   };
 
-  onSearchClicked = (words) => {
-    this.props.search(words);
-    this.props.getSearchResult(words);
-    Actions.SearchResult();
+  onSearchClicked = async (words) => {
+    await this.props.search(words);
+    await this.props.getSearchResult(words);
+    await Actions.SearchResult();
   };
 
   render() {
