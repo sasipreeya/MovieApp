@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../actions/favorite/favoriteAction";
-import { Divider, Text } from "react-native-elements";
+import { Divider, Text, Button } from "react-native-elements";
 import { Actions } from "react-native-router-flux";
 
 export class DetailScene extends Component {
@@ -28,6 +28,14 @@ export class DetailScene extends Component {
           <Text style={styles.overviewText} numberOfLines={4}>
             {this.props.movieItem.overview}
           </Text>
+        </View>
+        <View style={{ marginTop: 200 }}>
+          <Button
+            title="Favorite"
+            buttonStyle={{
+              backgroundColor: "orange",
+            }}
+          />
         </View>
       </View>
     );
