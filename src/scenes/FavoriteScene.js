@@ -7,6 +7,7 @@ import { MovieItem } from "../components/MovieItemComponent";
 export class FavoriteScene extends React.Component {
   render() {
     const { favoriteList } = this.props;
+    console.log(this.props.favoriteList);
     return (
       <ScrollView>
         <View>
@@ -25,10 +26,10 @@ export class FavoriteScene extends React.Component {
   }
 }
 
-const mapStateToProps = async (state) => {
+const mapStateToProps = (state) => {
   return {
-    favoriteList: await state.favoriteReducer.favoriteList,
+    favoriteList: state.favoriteReducer.favoriteList,
   };
 };
 
-export default connect(mapStateToProps, null)(FavoriteScene);
+export default connect(mapStateToProps)(FavoriteScene);
