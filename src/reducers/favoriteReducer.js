@@ -10,14 +10,11 @@ function addFavHandler(state, action) {
 }
 
 function removeFavHandler(state, action) {
-  if (state.favoriteList !== []) {
-    state.favoriteList.map((item) => {
-      if ((item.id = action.payload.movieId)) {
-        state.favoriteList = state.favoriteList.filter(
-          (item) => item.id !== action.payload.movieId
-        );
-      }
-    });
+  for (var i = 0; i < state.favoriteList.length; i++) {
+    if (state.favoriteList[i] == action.payload.movieObject) {
+      state.favoriteList.splice(i, 1);
+      break;
+    }
   }
   return state;
 }

@@ -6,15 +6,41 @@ import { Divider, Text, Button } from "react-native-elements";
 import { Actions } from "react-native-router-flux";
 
 export class DetailScene extends Component {
+  constructor() {
+    super();
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+  }
+
+  forceUpdateHandler() {
+    this.forceUpdate();
+  }
+
+  onAddFavClicked = async (movieItem) => {
+    await this.props.addFav(movieItem);
+    await this.forceUpdateHandler();
+  };
+
+  onRemoveFavClicked = (movieItem) => {
+    this.props.removeFav(movieItem);
+    this.forceUpdateHandler();
+  };
+
   renderButton = (movieItem, favoriteList) => {
-    if (favoriteList.length == 0) {
+    var foundItem = false;
+    for (var i = 0; i < favoriteList.length; i++) {
+      if (favoriteList[i].id == this.props.movieItem.id) {
+        foundItem = true;
+        break;
+      }
+    }
+    if (favoriteList.length == 0 || foundItem == false) {
       return (
         <Button
           title="Favorite"
           buttonStyle={{
             backgroundColor: "orange",
           }}
-          onPress={() => this.props.addFav(movieItem)}
+          onPress={() => this.onAddFavClicked(movieItem)}
         />
       );
     } else {
@@ -24,7 +50,7 @@ export class DetailScene extends Component {
           buttonStyle={{
             backgroundColor: "orange",
           }}
-          onPress={() => this.props.removeFav(this.props.movieItem.id)}
+          onPress={() => this.onRemoveFavClicked(movieItem)}
         />
       );
     }
