@@ -9,6 +9,7 @@ import { Actions } from "react-native-router-flux";
 export class FavoriteScene extends React.Component {
   _refresh = () => {
     return new Promise((resolve) => {
+      Actions.refresh();
       setTimeout(()=>{resolve()}, 2000)
     });
   }
