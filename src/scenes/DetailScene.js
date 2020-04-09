@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../actions/favorite/favoriteAction";
 import { Divider, Text, Button } from "react-native-elements";
@@ -59,7 +59,7 @@ export class DetailScene extends Component {
   render() {
     const { movieItem, favoriteList } = this.props;
     return (
-      <View>
+      <ScrollView>
         <View style={styles.container}>
           <Image
             source={{
@@ -79,10 +79,10 @@ export class DetailScene extends Component {
             {this.props.movieItem.overview}
           </Text>
         </View>
-        <View style={{ marginTop: 200 }}>
+        <View style={{ marginTop: 150 }}>
           {this.renderButton(movieItem, favoriteList)}
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
